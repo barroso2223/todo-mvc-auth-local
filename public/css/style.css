@@ -1,5 +1,6 @@
 h1{
-    color: red;
+    color: rgb(248, 232, 4);
+    text-shadow: 1px 1px 3px black;
 }
 .completed{
     text-decoration: line-through;
@@ -7,4 +8,21 @@ h1{
 }
 .not{
     text-decoration: underline;
+}
+
+button {
+    margin: .5rem 0;
+    border-radius: .25rem;
+    border: 1px solid black;
+}
+
+button:hover,
+.button:hover {
+    cursor: pointer;
+    background-color: rgb(248, 232, 4);
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
