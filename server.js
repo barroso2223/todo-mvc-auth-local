@@ -32,21 +32,6 @@ app.use(
     })
   )
   
-// Google Auth Route
-app.get(
-  '/auth/google',
-  passport.authenticate('google', { scope: ['profile', 'email'] })
-);
-
-// Google OAuth Callback
-app.get(
-  '/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/' }),
-  (req, res) => {
-    res.redirect('/dashboard'); // Redirect after successful login
-  }
-);
-
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())

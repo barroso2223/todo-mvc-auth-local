@@ -25,21 +25,6 @@ module.exports = function (passport) {
     })
   }))
 
-  passport.use(
-    new GoogleStrategy(
-      {
-        clientID: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: '/auth/google/callback',
-      },
-      (accessToken, refreshToken, profile, done) => {
-        console.log(profile); // Logs the Google user profile data
-        return done(null, profile);
-      }
-    )
-  );
-  
-
   passport.serializeUser((user, done) => {
     done(null, user.id)
   })

@@ -13,25 +13,27 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1><i class="fi fi-tr-honey-pot"></i> Honey Do List <i class="fi fi-ts-journal-alt"></i></h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
-
-    <h2><%= user.userName %> has <%= left %> thing(s) left to do.</h2>
-
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input class="button" type="submit">
-    </form>
-
-    <button><a href="/logout">Logout</a></button>
-
-    <script src="js/main.js"></script>
+    <main>
+        <div>
+            <h1><span><i class="fi fi-tr-honey-pot"></i> Honey Do List <i class="fi fi-ts-journal-alt"></i></span></h1>
+            <div class="todoContainer">
+                <ul class="todoList">
+                <% todos.forEach( el => { %>
+                        <li class='todoItem' data-id='<%=el._id%>'>
+                            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                            <span class='del'> Delete </span>
+                        </li>
+                <% }) %>
+                </ul>
+            </div>
+            <h2 class="black"><%= user.userName %> has <%= left %> thing(s) left to do.</h2>
+            <form action="/todos/createTodo" method='POST'>
+                <input type="text" placeholder="Enter To do Item" name='todoItem'>
+                <input class="button" type="submit">
+            </form>
+            <button><a href="/logout">Logout</a></button>
+        </div>
+        <script src="js/main.js"></script>
+    </main>
 </body>
 </html>
